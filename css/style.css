@@ -18,7 +18,9 @@ img {
 
 
 /* UTILITIES */
-
+.ms_cursor-pointer {
+    cursor: pointer;
+}
 
 /* HEADER */
 

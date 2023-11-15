@@ -30,11 +30,13 @@
 
                     <div class="mb-3">
                         <label for="todoItem" class="form-label">Inserisci qualcosa da aggiungere alla tua to-do
-                            list</label>
-                        <input type="text" class="form-control" id="todoItem">
+                            list
+                        </label>
+                        <input v-model="todoItem" type="text" class="form-control" id="todoItem">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Aggiungi</button>
+                    <button @click="saveItem" v-on:keyup.enter="saveItem" type="submit"
+                        class="btn btn-primary">Aggiungi</button>
                 </form>
             </div>
         </div>
@@ -43,11 +45,20 @@
             <h2 class="my-4">La tua lista</h2>
             <div class="col-sm-12 col-md-8 col-lg-6">
                 <ul class="list-group">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                    <li v-for="(item, index) in newItems" :key="index"
+                        class="list-group-item d-flex justify-content-between  align-content-center p-2"
+                        :class="{'d-none' : item === ''}">
+
+                        <div class="text mx-2">
+                            <p class="m-0">{{ item }}</p>
+                        </div>
+
+                        <div class="icons">
+                            <span @click="removeItem(index)" class="ms_cursor-pointer mx-2">&checkmark;</span><span
+                                @click="removeItem(index)" class="ms_cursor-pointer mx-2">&Cross;</span>
+                        </div>
+
+                    </li>
                 </ul>
             </div>
         </div>
