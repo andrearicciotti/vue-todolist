@@ -32,7 +32,7 @@
                         <label for="todoItem" class="form-label">Inserisci qualcosa da aggiungere alla tua to-do
                             list
                         </label>
-                        <input v-model="todoItem" type="text" class="form-control" id="todoItem">
+                        <input v-model="todoItem.name" type="text" class="form-control" id="todoItem">
                     </div>
 
                     <button @click="saveItem" v-on:keyup.enter="saveItem" type="submit"
@@ -47,14 +47,14 @@
                 <ul class="list-group">
                     <li v-for="(item, index) in newItems" :key="index"
                         class="list-group-item d-flex justify-content-between  align-content-center p-2"
-                        :class="{'d-none' : item === ''}">
+                        :class="{'d-none' : item.name === '', 'ms_highligth' : item.status === true}">
 
                         <div class="text mx-2">
-                            <p class="m-0">{{ item }}</p>
+                            <p :class="{'ms_linetrough' : item.status === true}" class="m-0">{{ item.name }}</p>
                         </div>
 
                         <div class="icons">
-                            <span @click="removeItem(index)" class="ms_cursor-pointer mx-2">&checkmark;</span><span
+                            <span @click="highlightItem(index)" class="ms_cursor-pointer mx-2" :class="{'ms_green' : item.status === true}">&checkmark;</span><span
                                 @click="removeItem(index)" class="ms_cursor-pointer mx-2">&Cross;</span>
                         </div>
 

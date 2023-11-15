@@ -22,6 +22,18 @@ img {
     cursor: pointer;
 }
 
+.ms_linetrough {
+    text-decoration: line-through;
+}
+
+.ms_highligth {
+    border: 2px solid lightgreen;
+}
+
+.ms_green {
+    color: lightgreen;
+    font-weight: bold;
+}
 /* HEADER */
 
 

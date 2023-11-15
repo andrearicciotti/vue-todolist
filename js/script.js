@@ -3,21 +3,29 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            todoItem: '',
-            newItems: []
+            todoItem: {
+                name: '',
+                status: false
+            },
+            newItems: [],
+            highlight: 'highlight'
         }
     },
     methods: {
         saveItem: function(event) {
             event.preventDefault();
-            if (this.todoItem != "") {
-                this.newItems.push(this.todoItem);
-                this.todoItem = '';
+            if (this.todoItem.name != '') {
+                this.newItems.push({...this.todoItem});
+                this.todoItem.name = '';
+                console.log(this.newItems);
             };
         },
         removeItem: function(index) {
-            this.newItems[index] = '';
-            console.log(index);
+            this.newItems[index].name = '';
+            // console.log(index);
+        },
+        highlightItem: function(index) {
+            this.newItems[index].status = true;
         }
     }
 }).mount('#app');
