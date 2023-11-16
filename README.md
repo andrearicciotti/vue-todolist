@@ -1,3 +1,9 @@
+# Anteprima
+
+![preview](img/preview.png)
+
+---
+
 # Esercizio
 
 ---
@@ -28,3 +34,14 @@ Cliccando sul testo dell'item, invertire il valore della proprietà done del tod
 
 ## Algoritmo di svolgimento
 
+- Creo una variabile all' interno dei data della mia app che mi servira' come appoggio per assegnarle il valore dell' input dal form HTML tramite v-model.
+
+- Aggiungo evento di click al bottone sottostante l' input per salvare il valore momentaneo della variabile v-model in un nuovo array.
+
+- Apro un ciclo v-for per ogni elemento dell' array che creera' un elemento lista, inserisco il contenuto di testo tramite string interpolation.
+
+- Aggiungo evento per il click del tasto 'Invio', utilizzo v-on.
+
+- Modifico le proprieta' della variabile d' appoggio per l' input trasformandola in un oggetto, dunque tutto cio' a cui era precedentemente assegnata la variabile adesso verra' assegnato alla chiave 'name' dell' oggetto', l' altra chiave dell' oggetto sara' un flag di tasto settato di default su 'false'.
+
+- Aggiungo un checkmark e un crossmark alla quale assegno un evento di click collegato alle funzioni di rimozione oggetto o evidenziazione di questo (come fosse una task svolta), singolo click su check: evidenzi in verde task svolta, barra il contenuto di testo, se il contenuto e' evidenziato e barrato crossmark lo fa tornare allo stato iniziale, stato iniziale con bordi rossi, se stato inziale crossmark elimina elemento dalla lista.
