@@ -21,11 +21,11 @@ createApp({
             };
         },
         removeItem: function(index) {
-            this.newItems[index].name = '';
+            (this.newItems[index].status === true) ? this.newItems[index].status = false : this.newItems[index].name = '';
             // console.log(index);
         },
         highlightItem: function(index) {
-            this.newItems[index].status = true;
+            (this.newItems[index].status === false) ? this.newItems[index].status = true : this.newItems[index].status = false;
         }
     }
 }).mount('#app');
